@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show info</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container-fluid text-center">
+    <div><h2> Show info</h2></div>
+    </div>
+</body>
+<div>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Pesel</th>
+            <th>Date Of Born</th>
+            <th>Date Of Employment</th>
+            <th>Registration Number</th>
+            <th>Fuel</th>
+            <th>Kilometers</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:text="${driver.id}">
+            <tr>
+                <td>[[${driver.id}]]</td>
+                <td>[[${driver.firstName}]]</td>
+                <td>[[${driver.lastName}]]</td>
+                <td>[[${driver.pesel}]]</td>
+                <td>[[${driver.dateOfBorn}]]</td>
+                <td>[[${driver.dateOfEmployment}]]</td>
+                <td>[[${driver.registrationNumber}]]</td>
+                <td>[[${driver.fuel}]]</td>
+                <td>[[${driver.kilometers}]]</td>
+                <td>[[${driver.salary}]]</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</html>

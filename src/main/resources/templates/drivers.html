@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Drivers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2> Manage Drivers</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/drivers/new}"> Add New Driver</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="driver : ${listDrivers}">
+                <tr>
+                    <td>[[${driver.id}]]</td>
+                    <td>[[${driver.firstName}]]</td>
+                    <td>[[${driver.lastName}]]</td>
+                    <td>[[${driver.phoneNumber}]]</td>
+                    <td>
+                        <a class="h4 mr-3 border-5" th:href="@{'/drivers/info/' + ${driver.id}}">Info</a>
+                        <a class="h4 border-5" th:href="@{'/drivers/edit/' + ${driver.id}}">Edit</a>
+                        <a class="h4 border-5" th:href="@{'/drivers/delete/' + ${driver.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
