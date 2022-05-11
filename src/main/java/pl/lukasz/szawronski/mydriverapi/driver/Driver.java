@@ -43,6 +43,56 @@ public class Driver {
     @Column(nullable = false)
     private float salary;
 
+    public float getConsumption() {
+        return consumption;
+    }
+
+    private float consumption = showConsumption();
+
+    private float finalSalary = showFinalSalary();
+
+    private float salaryRate;
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", dateOfBorn='" + dateOfBorn + '\'' +
+                ", dateOfEmployment='" + dateOfEmployment + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", fuel=" + fuel +
+                ", kilometers=" + kilometers +
+                ", salary=" + salary +
+                ", consumption=" + consumption +
+                ", finalSalary=" + finalSalary +
+                ", salaryRate=" + salaryRate +
+                '}';
+    }
+
+    public float getSalaryRate() {
+        return salaryRate;
+    }
+
+    public void setSalaryRate(float salaryRate) {
+        this.salaryRate = salaryRate;
+    }
+
+    public void setConsumption(float consumption) {
+        this.consumption = consumption;
+    }
+
+    public float getFinalSalary() {
+        return finalSalary;
+    }
+
+    public void setFinalSalary(float finalSalary) {
+        this.finalSalary = finalSalary;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -131,20 +181,12 @@ public class Driver {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return "Driver{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", dateOfBorn='" + dateOfBorn + '\'' +
-                ", dateOfEmployment='" + dateOfEmployment + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", fuel=" + fuel +
-                ", kilometers=" + kilometers +
-                ", salary=" + salary +
-                '}';
+    public float showFinalSalary(){
+        float finalSalary = salary + getKilometers() * salaryRate;
+        return finalSalary;
+    }
+    public float showConsumption(){
+        float fuelConsumption = fuel / kilometers * 100;
+        return Math.round(fuelConsumption);
     }
 }

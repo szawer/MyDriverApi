@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-    <div class="container-fluid text-center">
+    <div class="container-fluid">
     <h3> Driver id: <span th:text="${driver.id}"></span></h3>
         <div>
             <p> First Name : <span th:text="${driver.getFirstName()}"></span> </p>
@@ -15,13 +15,13 @@
             <p> Date of Born : <span th:text="${driver.getDateOfBorn()}"></span></p>
             <p> Date of Employment : <span th:text="${driver.getDateOfEmployment()}"></span></p>
             <p> Truck Registration Number : <span th:text="${driver.getRegistrationNumber()}"></span></p>
-            <p> Fuel : <span th:text="${driver.getFuel()}"></span></p>
+            <p> Fuel (L) : <span th:text="${driver.getFuel()}"></span></p>
             <p> Kilometers : <span th:text="${driver.getKilometers()}"></span></p>
-            <p> Basic Salary : <span th:text="${driver.getSalary()}"></span></p>
-            <p> Final Salary : <span th:text="${driver.getSalary()}"></span></p>
-            <p> Fuel Consumption : <span th:text="${driver.getSalary()}"></span></p>
+            <p> Basic Salary (PLN) : <span th:text="${driver.getSalary()}"></span></p>
+            <p> Final Salary (PLN) : <span th:text="${driver.showFinalSalary()}"></span></p>
+            <p> Fuel Consumption (L/100KM) : <span th:text="${driver.showConsumption()}"></span></p>
         </div>
-        <div class="text-center">
+        <div>
             <button type="button" class="btn-secondary m-2" onclick="cancelForm()">Back</button>
         </div>
 </div>
@@ -32,41 +32,3 @@
     </script>
 </body>
 </html>
-<!--    <div><h2> Show info</h2></div>-->
-<!--    </div>-->
-<!--</body>-->
-<!--<div>-->
-<!--    <table class="table table-bordered">-->
-<!--        <thead class="table-dark">-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>First Name</th>-->
-<!--            <th>Last Name</th>-->
-<!--            <th>Pesel</th>-->
-<!--            <th>Date Of Born</th>-->
-<!--            <th>Date Of Employment</th>-->
-<!--            <th>Registration Number</th>-->
-<!--            <th>Fuel</th>-->
-<!--            <th>Kilometers</th>-->
-<!--            <th>Salary</th>-->
-<!--            <th></th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <th:block th:text="${driver.id}">-->
-<!--            <tr>-->
-<!--                <td>[[${driver.id}]]</td>-->
-<!--                <td>[[${driver.firstName}]]</td>-->
-<!--                <td>[[${driver.lastName}]]</td>-->
-<!--                <td>[[${driver.pesel}]]</td>-->
-<!--                <td>[[${driver.dateOfBorn}]]</td>-->
-<!--                <td>[[${driver.dateOfEmployment}]]</td>-->
-<!--                <td>[[${driver.registrationNumber}]]</td>-->
-<!--                <td>[[${driver.fuel}]]</td>-->
-<!--                <td>[[${driver.kilometers}]]</td>-->
-<!--                <td>[[${driver.salary}]]</td>-->
-<!--            </tr>-->
-<!--        </th:block>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
