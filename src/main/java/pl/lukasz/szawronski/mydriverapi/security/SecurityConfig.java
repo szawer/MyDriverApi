@@ -2,7 +2,9 @@ package pl.lukasz.szawronski.mydriverapi.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,26 +21,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin")
                 .password(passwordEncoder().encode("secret1"))
                 .roles("ADMIN");
+
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder())
+                .withUser("user")
+                .password(passwordEncoder().encode("secret2"))
+                .roles("USER");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/drivers").permitAll()
+                .antMatchers(HttpMethod.POST,"/drivers").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE,"/drivers").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT,"/drivers").hasRole("ADMIN")
+                .antMatchers("/drivers").permitAll()
+                .anyRequest()
+                .hasRole("ADMIN")
+                .and()
+                .formLogin()
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
+
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
-
-//@Configuration
-//public class SecurityConfig extends WebSecurityConfigurerAdapter {
-//
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//        UserDetails userDetail = User.withDefaultPasswordEncoder()
-//                .username("admin")
-//                .password("admin1234")
-//                .roles("ADMIN")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(userDetail);
-//    }
-//}
