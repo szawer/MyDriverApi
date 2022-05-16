@@ -9,17 +9,21 @@
     <div class="container-fluid">
     <h3> Driver id: <span th:text="${driver.id}"></span></h3>
         <div>
-            <p> First Name : <span th:text="${driver.getFirstName()}"></span> </p>
-            <p> Last Name : <span th:text="${driver.getLastName()}"></span></p>
-            <p> PESEL : <span th:text="${driver.getPesel()}"></span></p>
-            <p> Date of Born : <span th:text="${driver.getDateOfBorn()}"></span></p>
-            <p> Date of Employment : <span th:text="${driver.getDateOfEmployment()}"></span></p>
-            <p> Truck Registration Number : <span th:text="${driver.getRegistrationNumber()}"></span></p>
-            <p> Fuel (L) : <span th:text="${driver.getFuel()}"></span></p>
-            <p> Kilometers : <span th:text="${driver.getKilometers()}"></span></p>
-            <p> Basic Salary (PLN) : <span th:text="${driver.getSalary()}"></span></p>
-            <p> Final Salary (PLN) : <span th:text="${driver.showFinalSalary()}"></span></p>
-            <p> Fuel Consumption (L/100KM) : <span th:text="${driver.showConsumption()}"></span></p>
+            <p class="p-2 bg-primary text-white"> First Name : <span th:text="${driver.getFirstName()}"></span> </p>
+            <p class="p-2 bg-primary text-white"> Last Name : <span th:text="${driver.getLastName()}"></span></p>
+            <p class="p-2 bg-dark text-white"> PESEL : <span th:text="${driver.getPesel()}"></span></p>
+            <p class="p-2 bg-dark text-white"> Date of Born : <span th:text="${driver.getDateOfBorn()}"></span></p>
+            <p class="p-2 bg-dark text-white"> Date of Employment : <span th:text="${driver.getDateOfEmployment()}"></span></p>
+            <p class="p-2 bg-dark text-white"> Truck Registration Number : <span th:text="${driver.getRegistrationNumber()}"></span></p>
+            <p class="p-2 bg-success text-white"> Fuel (L) : <span th:text="${driver.getFuel()}"></span></p>
+            <p class="p-2 bg-success text-white"> Kilometers : <span th:text="${driver.getKilometers()}"></span></p>
+            <p class="p-2 bg-success text-white"> Basic Salary (PLN) : <span th:text="${driver.getSalary()}"></span></p>
+            <p class="p-2 bg-success text-white"> Final Salary (PLN) : <span th:text="${driver.showFinalSalary()}"></span></p>
+            <p class="p-2 bg-success text-white"> Fuel Consumption (L/100KM) : <span th:text="${driver.showConsumption()}"></span></p>
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
         </div>
         <div>
             <button type="button" class="btn btn-danger" onclick="cancelForm()">Back</button>

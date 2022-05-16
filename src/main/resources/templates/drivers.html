@@ -6,10 +6,14 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container-fluid text-center">
+<div class="container-fluid text-lg-center">
     <div><h2> Manage Drivers</h2></div>
     <div class="m-2">
         <a class="h3" th:href="@{/drivers/new}"> Add New Driver</a>
+    </div>
+    <div><h2> Show Trucks</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/trucks}"> Show trucks</a>
     </div>
 
     <div th:if="${message}" class="alert alert-success text-center">

@@ -1,7 +1,10 @@
 package pl.lukasz.szawronski.mydriverapi.driver;
 
+import pl.lukasz.szawronski.mydriverapi.truck.Truck;
+
 import javax.persistence.*;
 
+//TODO Change boiler plate code to Lombok Annotations!.
 @Entity
 @Table(name = "drivers")
 public class Driver {
@@ -16,7 +19,7 @@ public class Driver {
     @Column(nullable = false, length = 25)
     private String lastName;
 
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, length = 11, unique = true)
     private String pesel;
     //todo good validation
 
@@ -43,6 +46,9 @@ public class Driver {
     @Column(nullable = false)
     private float salary;
 
+    public Driver() {
+    }
+
     public float getConsumption() {
         return consumption;
     }
@@ -52,6 +58,9 @@ public class Driver {
     private float finalSalary = showFinalSalary();
 
     private float salaryRate;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "driver")
+    private Truck truck;
 
     @Override
     public String toString() {
