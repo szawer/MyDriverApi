@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <table class="table table-bordered">
+        <table class="table table-dark table-striped">
             <thead class="table-dark">
             <tr>
                 <th>ID</th>
@@ -36,14 +36,15 @@
                     <td>[[${driver.lastName}]]</td>
                     <td>[[${driver.phoneNumber}]]</td>
                     <td>
-                        <a class="h4 mr-3 border-5" th:href="@{'/drivers/info/' + ${driver.id}}">Info</a>
-                        <a class="h4 border-5" th:href="@{'/drivers/edit/' + ${driver.id}}">Edit</a>
-                        <a class="h4 border-5" th:href="@{'/drivers/delete/' + ${driver.id}}">Delete</a>
+                        <a class="link-success" th:href="@{'/drivers/info/' + ${driver.id}}">Info</a>
+                        <a class="link-warning" th:href="@{'/drivers/edit/' + ${driver.id}}">Edit</a>
+                        <a class="link-danger" th:href="@{'/drivers/delete/' + ${driver.id}}">Delete</a>
                     </td>
                 </tr>
             </th:block>
             </tbody>
         </table>
+        <img class="rounded mx-auto d-block" th:src="@{/images/daf.jpg}"/>
     </div>
 </div>
 </body>
