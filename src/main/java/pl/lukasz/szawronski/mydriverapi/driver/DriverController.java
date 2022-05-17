@@ -40,7 +40,7 @@ public class DriverController {
     }
 
     @GetMapping("/drivers/edit/{id}")
-    public String deleteDriver(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
+    public String editDriver(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
         try {
             Driver driver = service.get(id);
             model.addAttribute("driver", driver);
@@ -52,8 +52,9 @@ public class DriverController {
             return "redirect:/drivers";
         }
     }
+
     @GetMapping("/drivers/delete/{id}")
-    public String deleteDriver(@PathVariable("id") Integer id, RedirectAttributes ra) {
+    public String editDriver(@PathVariable("id") Integer id, RedirectAttributes ra) {
         try {
             service.delete(id);
             ra.addFlashAttribute("message", "The driver ID " + id + " has been deleted!");
@@ -62,6 +63,7 @@ public class DriverController {
         }
         return "redirect:/drivers";
     }
+
     @GetMapping("/drivers/info/{id}")
     public String singleDriverInfo(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
         try {
@@ -75,12 +77,4 @@ public class DriverController {
             return "redirect:/drivers";
         }
     }
-
-//    public String singleDriverInfo(@PathVariable("id") Integer id, Model model) throws DriverNotFoundException {
-//        List<Driver> listDrivers = service.listAll();
-//        model.addAttribute("listDrivers", listDrivers);
-//
-//        return "driver_info";
-//    }
 }
-
