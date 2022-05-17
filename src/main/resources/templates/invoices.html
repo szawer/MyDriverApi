@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Drivers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-lg-center">
+    <div><h2> Manage VAT Invoices</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/invoices/new}"> Add New VAT Invoice</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+
+    </div>
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>FV Number</th>
+                <th>Place of Issue</th>
+                <th>Date Of Issue</th>
+                <th>Date Of Sale</th>
+                <th>Seller's Name</th>
+                <th>Seller's NIP</th>
+                <th>Seller's Street</th>
+                <th>Seller's Zip Code</th>
+                <th>Buyer's Name</th>
+                <th>Buyer's NIP</th>
+                <th>Buyer's Street</th>
+                <th>Buyer's Zip Code</th>
+                <th>Quantity</th>
+                <th>Total Net Price</th>
+                <th>VAT Rate</th>
+                <th>Total Gross Price</th>
+                <th>Method of Payment</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="vatInvoice : ${listInvoices}">
+                <tr>
+                    <td>[[${vatInvoice.id}]]</td>
+                    <td>[[${vatInvoice.fvNumber}]]</td>
+                    <td>[[${vatInvoice.placeOfIssue}]]</td>
+                    <td>[[${vatInvoice.dateOfIssue}]]</td>
+                    <td>[[${vatInvoice.dateOfSale}]]</td>
+                    <td>[[${vatInvoice.sellersName}]]</td>
+                    <td>[[${vatInvoice.sellersNip}]]</td>
+                    <td>[[${vatInvoice.sellersStreet}]]</td>
+                    <td>[[${vatInvoice.sellersZipCode}]]</td>
+                    <td>[[${vatInvoice.buyersName}]]</td>
+                    <td>[[${vatInvoice.buyersNip}]]</td>
+                    <td>[[${vatInvoice.buyersStreet}]]</td>
+                    <td>[[${vatInvoice.buyersZipCode}]]</td>
+                    <td>[[${vatInvoice.quantity}]]</td>
+                    <td>[[${vatInvoice.totalNetPrice}]]</td>
+                    <td>[[${vatInvoice.vatRate}]]</td>
+                    <td>[[${vatInvoice.totalGrossPrice}]]</td>
+                    <td>[[${vatInvoice.methodOfPayment}]]</td>
+                    <td>
+                        <a class="link-success" th:href="@{'/invoices/info/' + ${vatInvoice.id}}">Info</a>
+                        <a class="link-warning" th:href="@{'/invoices/edit/' + ${vatInvoice.id}}">Edit</a>
+                        <a class="link-danger" th:href="@{'/invoices/delete/' + ${vatInvoice.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <img class="rounded mx-auto d-block dropdown-toggle" th:src="@{/images/daf.jpg}"/>
+    </div>
+    <div>
+        <button type="button" class="btn btn-danger" onclick="cancelForm()">Back</button>
+    </div>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location = "[[@{/drivers}]]";
+    }
+</script>
+</div>
+</body>
+</html>

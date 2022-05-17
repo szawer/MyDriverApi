@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show info</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div>
+            <p class="p-2 text-lg-end"> Place of Issue : <span th:text="${invoice.getPlaceOfIssue()}"></span></p>
+            <p class="p-2 text-lg-end"> Date Of Issue : <span th:text="${invoice.getDateOfIssue()}"></span></p>
+            <p class="p-2 text-lg-end"> Date of Sale : <span th:text="${invoice.getDateOfSale()}"></span></p>
+
+
+            <p class="p-2 "> Seller's Name : <span th:text="${invoice.getSellersName()}"></span></p>
+            <p class="p-2 "> Seller's NIP Number : <span th:text="${invoice.getSellersNip()}"></span></p>
+            <p class="p-2 "> Seller's Street: <span th:text="${invoice.getSellersStreet()}"></span></p>
+            <p class="p-2 "> Seller's Zip Code: <span th:text="${invoice.getSellersZipCode()}"></span></p>
+
+            <p class="p-2 text-lg-end"> Buyer's Name : <span th:text="${invoice.getBuyersName()}"></span></p>
+            <p class="p-2 text-lg-end"> Buyer's NIP : <span th:text="${invoice.getBuyersNip()}"></span></p>
+            <p class="p-2 text-lg-end"> Buyer's Street : <span th:text="${invoice.getBuyersStreet()}"></span></p>
+            <p class="p-2 text-lg-end"> Buyer's Zip Code : <span th:text="${invoice.getBuyersZipCode()}"></span></p>
+
+            <p class="p-2 text-center" > FV Invoice Number : <span th:text="${invoice.getFvNumber()}"></span> </p>
+            <table>
+            <p class="p-2 "> Quantity : <span th:text="${invoice.getQuantity()}"></span></p>
+            <p class="p-2 "> Total Net Price : <span th:text="${invoice.getTotalNetPrice()}"></span></p>
+            <p class="p-2 "> VAT Rate : <span th:text="${invoice.getVatRate()}"></span></p>
+            <p class="p-2 "> Total Gross Price : <span th:text="${invoice.getTotalGrossPrice()}"></span></p>
+            <p class="p-2 "> Method of Payment: <span th:text="${invoice.getMethodOfPayment()}"></span></p>
+            </table>
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Print</label>
+        </div>
+        <div>
+            <button type="button" class="btn btn-danger" onclick="cancelForm()">Back</button>
+        </div>
+</div>
+    <script type="text/javascript">
+        function cancelForm(){
+            window.location = "[[@{/invoices}]]";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Trucks</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2> Manage Trucks</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/trucks/new}"> Add New Truck</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+
+    </div>
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Truck ID</th>
+                <th>Truck Manufacturer</th>
+                <th>Truck Model</th>
+                <th>Year of Production</th>
+                <th>Engine Capacity</th>
+                <th>Truck color</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="truck : ${listTrucks}">
+                <tr>
+                    <td>[[${truck.id}]]</td>
+                    <td>[[${truck.manufacturer}]]</td>
+                    <td>[[${truck.model}]]</td>
+                    <td>[[${truck.productionYear}]]</td>
+                    <td>[[${truck.engineCapacity}]]</td>
+                    <td>[[${truck.color}]]</td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <img class="rounded mx-auto d-block" th:src="@{/images/daf.jpg}"/>
+    </div>
+    <div>
+        <button type="button" class="btn btn-danger" onclick="cancelForm()">Back</button>
+    </div>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location = "[[@{/drivers}]]";
+    }
+</script>
+</body>
+</html>
