@@ -1,7 +1,9 @@
 My new WebApi project for transport companies.
 Working on MYSQL DATABASE. 
 Application provides calculating salaries for truck drivers and monthly fuel consumption for transport company. Recently added ability to issue VAT invoices.
+
 TODO 1: Ability to Print VAT invoices.
+
 TODO 1: Add new features to Trucks - performing technical condition surveys.
 
 
