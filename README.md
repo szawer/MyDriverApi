@@ -2,7 +2,7 @@ My new WebApi project for transport companies.
 Working on MYSQL DATABASE. 
 Application provides calculating salaries for truck drivers and monthly fuel consumption for transport company.
 
-✅ Java ✅ Spring Boot ✅ Hibernate ✅ MySQL ✅ Thymeleaf
+✅ Java ✅ Spring Boot ✅ Hibernate ✅ MySQL ✅ Thymeleaf  ✅ Bootsrap
 ![firefox_0YKlEeKPMg](https://user-images.githubusercontent.com/59929639/167868011-9c223db3-0cea-4f35-b281-17a3f25b320b.png)
 ![firefox_AcPIHw628o](https://user-images.githubusercontent.com/59929639/168574718-5a12b907-7a04-4b72-b9f9-e6e7135dd2d4.png)
 ![firefox_rWkFVGIyGA](https://user-images.githubusercontent.com/59929639/168574848-f8c23a89-a3b8-4119-85e0-f94c90cb78f0.png)
